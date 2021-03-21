@@ -1,26 +1,3 @@
-// var range = document.createElement ("input='range'");
-// var numbers = document.createElement ("input='number'");
-// <input type="range">
-// <input type="number">
-
-// // function startGenerator () {
-//     var range = document.createElement("input");
-
-// }
-// document.querySelector("generate")
-// generateBtn.addEventListener("click", writePassword);
-
-// assignment code here
-
-
-var characterAmountRange = document.getElementById ("characterAmountRange")
-var characterAmountNumber = document.getElementById ("characterAmountNumber")
-var includeUppercaseElement = document.getElementById ("includeUppercase")
-var includeNumbersElement = document.getElementById ("includeNumbers")
-var includeSymbolsElement = document.getElementById ("includeSymbols")
-var form = document.getElementById("password")
-var password = document.getElementById("password")
-
 var lowerCaseCharCodes = arrayFromLowToHigh(97,122)
 var uppercaseCharCodes = arrayFromLowToHigh(65, 90)
 var numberCarCharCodes = arrayFromLowToHigh(48, 57)
@@ -36,37 +13,44 @@ characterAmountRange.addEventListener("input", syncCharacterAmount)
 characterAmountNumber.addEventListener("input", syncCharacterAmount)
 
 function onClick(e) {
-    var characterAmountRange = document.getElementById ("characterAmountRange")
-var characterAmountNumber = document.getElementById ("characterAmountNumber")
-var includeUppercaseElement = document.getElementById ("upperCaseCharacters")
-var includeNumbersElement = document.getElementById ("numbersCharacters")
-var includeSymbolsElement = document.getElementById ("symbolsCharacters")
-// var form = document.getElementById("password")
-var passwordText = document.getElementById("password")
-
-var lowerCaseCharCodes = arrayFromLowToHigh(97,122)
-var uppercaseCharCodes = arrayFromLowToHigh(65, 90)
-var numberCarCharCodes = arrayFromLowToHigh(48, 57)
-var symbolCharCodes = arrayFromLowToHigh(33, 47).concat(
-    arrayFromLowToHigh(58, 64)
-).concat(
-    arrayFromLowToHigh(91, 96)
-).concat(
-    arrayFromLowToHigh(123, 126)
-)
-
     e.preventDefault()
+
+    var characterAmountNumber = document.getElementById ("characterAmountNumber")
+    var includeUppercaseElement = document.getElementById ("upperCaseCharacters")
+    var includeNumbersElement = document.getElementById ("numbersCharacters")
+    var includeSymbolsElement = document.getElementById ("symbolsCharacters")
+    var passwordText = document.getElementById("password")
+    var cardBody = document.getElementById("card-body")
+    cardBody.style.display = "block";
+
     var characterAmount = characterAmountNumber.value
     var includeUpperCase = includeUppercaseElement.checked
     var includeNumbers = includeNumbersElement.checked
     var includeSymbols = includeSymbolsElement.checked
     var password = generatePassword(characterAmount, includeUpperCase, includeNumbers, includeSymbols)
     passwordText.innerText = password
+
 }
 
-var generateBtn = document.querySelector("#generate");
+function toggle(e) {
+    e.preventDefault()
+    var inputs = document.getElementById ("inputs")
+    var generate = document.getElementById ("generate")
+    var hideshow = document.getElementById ("hideshow")
+        inputs.style.display = "block";
+        generate.style.display = "block";
+        hideshow.style.display = "none";
+        
+    
+    }
 
+
+
+var generateBtn = document.querySelector("#generate");
 generateBtn.addEventListener("click", onClick);
+var hideShow = document.querySelector("#hideshow");
+hideShow.addEventListener("click", toggle);
+
 
 function syncCharacterAmount(e) {
     var value = e.target.value
@@ -98,18 +82,3 @@ function arrayFromLowToHigh(low, high) {
     }
     return array;
 };
-
-// Get references to the #generate element
-// var generateBtn = document.querySelector("#generate");
-
-// Write password to the #password input
-// function writePassword() {
-//   var password = generatePassword(characterAmount, includeUpperCase, includeNumbers, includeSymbols);
-//   var passwordText = document.querySelector("#password");
-
-//   passwordText.value = password;
-
-// }
-
-// Add event listener to generate button
-// generateBtn.addEventListener("click", writePassword);
