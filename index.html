@@ -16,7 +16,24 @@
         <div class="card-header">
           <h2>Generate a Password</h2>
         </div>
-        <div class="card-body">
+        <div class="inputs" id="inputs">
+            <label for="characterNumber">Number of Characters</label>
+            <input type="range" min="8" max="28" value="8" id="characterAmountRange">
+            <input type="number" min="8" max="28" value="8" id="characterAmountNumber">
+
+            <label for="upperCaseCharacters">Include Uppercase Characters?</label>
+            <input type="checkbox" id="upperCaseCharacters">
+
+
+            <label for="numbersCharacters">Include Number Characters?</label>
+            <input type="checkbox" id="numbersCharacters">
+
+
+            <label for="symbolsCharacters">Include Symbol Characters?</label>
+            <input type="checkbox" id="symbolsCharacters">
+
+        </div>
+        <div class="card-body" id="card-body">
           <textarea
             readonly
             id="password"
@@ -26,9 +43,10 @@
         </div>
         <div class="card-footer">
           <button id="generate" class="btn">Generate Password</button>
+          <button id="hideshow" class="btn">Do You Want to Generate a Password?</button>
         </div>
       </div>
     </div>
-    <script src="script.js"></script>
+    <script src="script2.js"></script>
   </body>
 </html>
